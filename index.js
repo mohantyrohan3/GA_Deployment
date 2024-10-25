@@ -13,6 +13,13 @@ app.get('/',(req,res)=>{
 })
 
 
+app.get('/get1' , (req,res)=>{
+    res.json({
+        message:"This is get1"
+    })
+})
+
+
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)
 })

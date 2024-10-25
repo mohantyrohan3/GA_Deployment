@@ -13,7 +13,7 @@ jobs:
         uses: D3rHase/ssh-command-action@latest
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          user: ${{ secrets.USERNAME }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           command: |
             cd GA_Deployment/

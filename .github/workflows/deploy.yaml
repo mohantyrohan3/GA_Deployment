@@ -16,4 +16,4 @@ jobs:
           user: ${{ secrets.USERNAME }}
           private_key: ${{ secrets.PRIVATE_KEY }}
           command:
-            "cd GA_Deployment && git pull origin main && npm i && pm2 restart 0 && sudo systemctl reload caddy"
+            "cd GA_Deployment && git pull origin main && npm install && pm2 restart 0 && sudo systemctl reload caddy"

@@ -1,0 +1,23 @@
+name: Deploy to VPS
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Remote Command Via SSH
+        uses: D3rHase/ssh-command-action@latest
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          command: |
+            cd GA_Deployment/
+            git pull origin main
+            npm i
+            pm2 restart 0
+            sudo systemctl reload caddy
